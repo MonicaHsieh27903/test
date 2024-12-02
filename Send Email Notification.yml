@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # 允許手動觸發
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python environment
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install sendgrid
+
+    - name: Send email
+      run: |
+        python send_email.py
+      env:
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}  # 從 GitHub secrets 中讀取 API 金鑰
+        RECIPIENT_EMAIL: recipient@example.com  # 收件人的電子郵件地址
