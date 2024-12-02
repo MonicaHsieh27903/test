@@ -1,0 +1,13 @@
+name: Open NotePad
+on:
+  push:
+    branch:
+      - main
+    workflow_dispatch: #可以手動觸發
+  jobs:
+    open-notepad:
+      run-on: windows-latest 
+      steps:
+      - name: 開啟記事本
+        run: start-process "notepad.exe"
+        shell: pwsh
