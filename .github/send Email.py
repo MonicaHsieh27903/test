@@ -5,7 +5,7 @@ from sendgrid.helpers.mail import Mail, Email, To, Content
 def send_email():
     # 取得環境變量
     sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
-    recipient_email = os.getenv('RECIPIENT_EMAIL')
+    recipient_email = os.getenv('ms.hsieh0710@gmail.com')
 
     if not sendgrid_api_key or not recipient_email:
         print("缺少 API 金鑰或收件人郵件地址")
