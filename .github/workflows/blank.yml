@@ -33,5 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          echo test, and deploy your project.
-          嗨囉，今天星期一，晚上幾點呢？你那邊好嗎？
+          echo test, and deploy your project.嗨囉，今天星期一，晚上幾點呢？你那邊好嗎？
